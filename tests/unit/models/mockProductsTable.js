@@ -1,4 +1,5 @@
 const mockProductsTable = [
+[
   {
     id: 1,
     name: "Martelo de Thor"
@@ -11,6 +12,8 @@ const mockProductsTable = [
     id: 3,
     name: "Escudo do Capitão América"
   }
+  ],
+  []
 ];
 
 module.exports = mockProductsTable;
