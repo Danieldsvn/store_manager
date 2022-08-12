@@ -12,7 +12,7 @@ const getAll = async (request, response) => {
 
 const getById = async (request, response) => {
   const { id } = request.params;
-  const product = await ProductService.getAll(id);
+  const product = await ProductService.getById(id);
 
   return response.status(200).json(product);
 };
