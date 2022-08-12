@@ -1,4 +1,4 @@
-const mockProductsTable = [
+const mockAll = [
 [
   {
     id: 1,
@@ -16,4 +16,17 @@ const mockProductsTable = [
   []
 ];
 
-module.exports = mockProductsTable;
+const mockOne = [
+  [    
+    {
+      id: 2,
+      name: "Traje de encolhimento"
+    },    
+  ],
+  []
+];
+
+module.exports = {
+  mockAll,
+  mockOne,
+};
