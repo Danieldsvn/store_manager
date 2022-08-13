@@ -5,7 +5,7 @@ const connection = require('../../../models/connection');
 const ProductModel = require('../../../models/productModel');
 const mockProducts = require('./mockProductsTable'); 
 
-describe('Obtem lista de produtos do banco de dados', () => {
+describe('Teste Product Model - Obtem lista de produtos do banco de dados', () => {
   
   describe('Quando retorna produtos com sucesso', () => {
     describe('em toda a lista', () => {

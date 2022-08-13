@@ -8,7 +8,7 @@ const mockProducts = require('../models/mockProductsTable');
 const allProducts = mockProducts.mockAll[0];
 const oneProduct = mockProducts.mockOne[0];
 
-describe('Camada service recebe dados com possíveis validações', () => {
+describe('Teste Product Service -Camada service recebe dados com possíveis validações', () => {
   
   describe('da lista de todos os produtos', () => {
     before(async () => {
