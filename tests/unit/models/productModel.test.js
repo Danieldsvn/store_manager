@@ -16,7 +16,7 @@ describe('Obtem lista de produtos do banco de dados', () => {
         connection.execute.restore();
       });
       it('Retorna um array', async () => {
-        const products = await ProductModel.getAll();
+        const products = await ProductModel.getAll();        
         expect(products).to.be.an('array');
       });
     });
@@ -27,10 +27,10 @@ describe('Obtem lista de produtos do banco de dados', () => {
       after(async () => {
         connection.execute.restore();
       });
-      it('Retorna um objeto', async () => {
+      it('Retorna um array', async () => {
         const [[{ id }]] = mockProducts.mockOne;        
-        const products = await ProductModel.getById(id);
-        expect(products).to.be.an('object');
+        const product = await ProductModel.getById(id);        
+        expect(product).to.be.an('array');
       });
     }); 
   });
