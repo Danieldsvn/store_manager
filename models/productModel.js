@@ -18,11 +18,11 @@ const getById = async (id) => {
 
 const create = async (name) => {
   const [{ insertId }] = await connection.execute(
-    'INSERT INTO StoreManager.products (name) VALUES (?)', [name]
+    'INSERT INTO StoreManager.products (name) VALUES (?)', [name],
   );
 
   return insertId;
-}
+};
 
 // create().then(result => console.log(result));
 
