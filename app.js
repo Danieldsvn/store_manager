@@ -11,6 +11,7 @@ app.get('/', (_request, response) => {
 });
 
 app.get('/products', ProductController.getAll);
+app.post('/products', ProductController.create);
 app.get('/products/:id', ProductController.getById);
 
 // não remova essa exportação, é para o avaliador funcionar

@@ -17,10 +17,24 @@ const getById = async (request, response) => {
     return response.status(404).json({ message: 'Product not found' });
   }
 
-  return response.status(200).json(product);
+  return response.status(200).json(product[0]);
 };
+
+const create = async (request, response) => {
+  const { name } = request.body;
+  const product = await ProductService.create(name);
+  if (product.message) {
+    const { message, code } = product;
+    return response.status(code).json({ message });
+  }
+
+  return response.status(201).json(product);
+};
+
+
 
 module.exports = {
   getAll,
   getById,
+  create,
 };

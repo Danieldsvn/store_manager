@@ -8,15 +8,28 @@ const getAll = async () => {
 
 const getById = async (id) => {
   const product = await ProductModel.getById(id);
-  if (!product) return false;
+  if (product.length === 0) return false;
   
   return product;
 };
 
-const create = async (name) => {
-  const product = await ProductModel.create(name);
-  if (!product) return false;
+const nameValid = (name) => {
+  if (!name) {
+    return { message: '\"name\" is required', code: 400, valid: false };
+  } 
+  if (name.length < 5) {
+    return { message: '\"name\" length must be at least 5 characters long', code: 422, valid: false };
+  }
+  return { valid: true };
+}
 
+const create = async (name) => {
+  const { valid } = nameValid(name);
+  if (!valid) { 
+    const { code, message } = nameValid(name);
+    return { message, code }
+  } 
+  const product = await ProductModel.create(name);  
   return product;
 };
 
