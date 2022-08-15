@@ -34,8 +34,7 @@ describe('Teste Product Service -Camada service recebe dados com possíveis vali
     });
     describe('quando o produto é carregado com sucesso', () => {
       it('Seu retorno é um array', async () => {
-        const product = await ProductService.getById();
-        console.log(product);
+        const product = await ProductService.getById();        
         expect(product).to.be.an('array');
       });
     }); 
