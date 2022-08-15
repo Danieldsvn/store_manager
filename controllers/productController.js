@@ -31,8 +31,6 @@ const create = async (request, response) => {
   return response.status(201).json(product);
 };
 
-
-
 module.exports = {
   getAll,
   getById,
