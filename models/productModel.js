@@ -29,4 +29,5 @@ const create = async (name) => {
 module.exports = {
   getAll,
   getById,
+  create,
 };
