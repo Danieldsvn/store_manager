@@ -17,7 +17,7 @@ const getById = async (request, response) => {
     return response.status(404).json({ message: 'Product not found' });
   }
 
-  return response.status(200).json(product[0]);
+  return response.status(200).json(product);
 };
 
 const create = async (request, response) => {

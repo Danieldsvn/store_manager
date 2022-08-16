@@ -27,10 +27,10 @@ describe('Teste Product Model - Obtem lista de produtos do banco de dados', () =
       after(async () => {
         connection.execute.restore();
       });
-      it('Retorna um array', async () => {
+      it('Retorna um objeto', async () => {
         const [[{ id }]] = mockProducts.mockOne;        
         const product = await ProductModel.getById(id);        
-        expect(product).to.be.an('array');
+        expect(product).to.be.an('object');
       });
     }); 
   });
