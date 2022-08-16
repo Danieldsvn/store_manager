@@ -1,13 +1,13 @@
-// const connection = require('./connection');
+const connection = require('./connection');
 
-// const create = async (name) => {
-//   const result = await connection.execute(
-//     'INSERT INTO StoreManager.sales (name) VALUES (?)', [name],
-//   );
+const create = async () => {
+  const result = await connection.execute(
+    'INSERT INTO StoreManager.sales (date) VALUES (NOW())' 
+  );  
 
-//   return { id: result[0].insertId, name };
-// }
+  return  result[0].insertId;
+}
 
-// module.exports = {
-//   create,
-// }
+module.exports = {
+  create,
+}
