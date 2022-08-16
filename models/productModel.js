@@ -22,7 +22,8 @@ const create = async (name) => {
   );
   
   return { id: result[0].insertId, name };
-}
+};
+
 module.exports = {
   getAll,
   getById,

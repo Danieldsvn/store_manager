@@ -1,9 +1,9 @@
 const SaleService = require('../services/saleService');
 
 const create = async (request, response) => {
-  const sales = request.body;  
+  const salesData = request.body;  
   const sales = await Promise
-    .all(sales
+    .all(salesData
       .map((sale) => SaleService.create(sale.productId, sale.quantity)));
   if (sales.message) {
     const { message, code } = sales;
