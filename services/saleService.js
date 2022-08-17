@@ -7,8 +7,8 @@ const validation = async (productId, quantity) => {
     return { message: '"productId" is required', code: 400, valid: false };
   }
   const productExist = await ProductService.getById(productId);
-  if (!productExist === false) {
-    return { message: '"Product not found', code: 404, valid: false };
+  if (productExist === false) {
+    return { message: 'Product not found', code: 404, valid: false };
     console.log('getById em validation');
   }
   if (quantity === undefined) {
@@ -27,13 +27,11 @@ const validation = async (productId, quantity) => {
 const create = async (productId, quantity) => {
   const { valid } = await validation(productId, quantity);
   if (!valid) {
-    const { code, message } = validation(productId, quantity);
+    const { code, message } = await validation(productId, quantity);
     return { message, code };
   }
   
-  console.log(`productId: ${productId}`);
-  const saleId = await SaleModel.create();
-  console.log(`saleId: ${saleId}`);
+  const saleId = await SaleModel.create();  
   const sale = SaleProductModel.create(saleId, productId, quantity);
   return sale;
 };
