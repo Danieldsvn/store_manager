@@ -2,12 +2,9 @@ const SaleService = require('../services/saleService');
 
 const create = async (request, response) => {
   const salesData = request.body;  
-  const sales = await Promise
-    .all(salesData
-      .map((sale) => SaleService.create(sale.productId, sale.quantity)));
-  const errorMessage = sales.find((sale) => sale.message);
-  if (errorMessage) {
-    const { message, code } = errorMessage;
+  const sales = await SaleService.create(salesData);  
+  if (sales.message) {
+    const { code, message } = sales;
     return response.status(code).json({ message });
   }
 

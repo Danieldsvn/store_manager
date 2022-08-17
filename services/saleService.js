@@ -8,8 +8,7 @@ const validation = async (productId, quantity) => {
   }
   const productExist = await ProductService.getById(productId);
   if (productExist === false) {
-    return { message: 'Product not found', code: 404, valid: false };
-    console.log('getById em validation');
+    return { message: 'Product not found', code: 404, valid: false };    
   }
   if (quantity === undefined) {
     return { message: '"quantity" is required', code: 400, valid: false };
@@ -24,16 +23,25 @@ const validation = async (productId, quantity) => {
   return { valid: true };
 };
 
-const create = async (productId, quantity) => {
-  const { valid } = await validation(productId, quantity);
-  if (!valid) {
-    const { code, message } = await validation(productId, quantity);
-    return { message, code };
-  }
-  
+const create = async (salesData) => {  
+  const validationsMap = await Promise.all(salesData.map(async (sale) => {
+    const validationResult = await validation(sale.productId, sale.quantity);
+    return validationResult;
+  }));   
+  const item = validationsMap.find((validationOne) => validationOne.valid === false);  
+  if (item !== undefined) {
+    const { code, message } = item;
+    return { code, message };
+  }  
   const saleId = await SaleModel.create();  
-  const sale = SaleProductModel.create(saleId, productId, quantity);
-  return sale;
+  await Promise
+    .all(salesData
+      .map((sale) => SaleProductModel.create(saleId, sale.productId, sale.quantity)));  
+  const salesSucess = {
+    id: saleId,
+    itemsSold: salesData,
+  };
+  return salesSucess;
 };
 
 module.exports = {
