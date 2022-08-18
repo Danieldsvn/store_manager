@@ -44,6 +44,28 @@ const create = async (salesData) => {
   return salesSucess;
 };
 
+const getAll = async () => {
+  const sales = await SaleProductModel.getAll();  
+ 
+  return sales;
+};
+
+const getById = async (id) => {
+  const sale = await SaleProductModel.getById(id);
+
+  if (!sale) {
+    return { code: 404, message: 'Sale not found' };
+  }
+
+  console.log(`sale: ${JSON.stringify(sale)}`);
+
+  return sale;
+};
+
+
+
 module.exports = {
   create,
+  getAll,
+  getById
 };
