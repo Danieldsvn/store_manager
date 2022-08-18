@@ -55,17 +55,13 @@ const getById = async (id) => {
 
   if (!sale) {
     return { code: 404, message: 'Sale not found' };
-  }
-
-  console.log(`sale: ${JSON.stringify(sale)}`);
+  }  
 
   return sale;
 };
 
-
-
 module.exports = {
   create,
   getAll,
-  getById
+  getById,
 };
