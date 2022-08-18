@@ -37,8 +37,19 @@ const create = async (name) => {
   return product;
 };
 
+const update = async (id, name) => {
+  const { valid } = nameValid(name);
+  if (!valid) {
+    const { code, message } = nameValid(name);
+    return { message, code };
+  }
+  const product = await ProductModel.update(id, name);
+  return product;
+};
+
 module.exports = {
   getAll,
   getById,
   create,
+  update,
 };
