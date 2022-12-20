@@ -1,13 +1,34 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+# Store Manager
+23º projeto na Trybe. API RESTful em Node.js com arquitetura MSC(model-service-controller) com testes.
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+## O que é
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+Uma API de um sistema de gerenciamento de vendas no formato dropshipping em que é possível criar, visualizar, deletar(não implementado) e atualizar produtos e vendas.
+
+## Tecnologias empregadas:
+
+Node.js, Docker e bibliotecas:
+* Express(endpoints)
+* Sinon(testes)
+* Mocha(testes)
+* CHAI(testes)
+* mysql2(Queries MySQL)
+
+## Habilidades praticadas
+
+  * Construção de API com a arquitetura em camadas
+
+  * Fazer queries MySQL com a biblioteca mysql2
+
+  * Construção de API RESTful
+
+  * Rodar a aplicação com Docker
+
+## O que é de minha autoria:
+
+Os arquivos dos diretórios: 
+* `./controllers`
+* `./services`
+* `./models` (Menos o `connection.js`)
+* `./tests`
+E o arquivo `./app.js`
