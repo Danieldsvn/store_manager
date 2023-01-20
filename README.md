@@ -1,5 +1,5 @@
 # Store Manager
-23º projeto na Trybe. API RESTful em Node.js com arquitetura MSC(model-service-controller) com testes.
+22º projeto na Trybe. API RESTful em Node.js com arquitetura MSC(model-service-controller) com testes.
 
 ## O que é
 
